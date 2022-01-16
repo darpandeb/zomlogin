@@ -12,6 +12,10 @@ const Users = require('./usermodal');
 router.use(bodyParser.urlencoded({extended:true}));
 router.use(bodyParser.json());
 
+router.get('/',(req,res)=>{
+    res.send("welcome to login backend")
+})
+
 router.get('/users', (req, res) => {
     Users.find({}, (err,data)=>{
         if(err) throw err
