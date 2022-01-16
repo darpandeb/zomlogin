@@ -7,7 +7,6 @@ const cors = require('cors');
 
 app.use(cors());
 const AuthControl = require('./auth/authController');
-const router = require('./auth/authController');
 
 
 app.use('/api/authurization', AuthControl)
