@@ -9,7 +9,7 @@ app.use(cors());
 const AuthControl = require('./auth/authController');
 
 
-app.use('/api/authurization', AuthControl)
+app.use('/api/authorization', AuthControl)
 
 
 
