@@ -26,7 +26,7 @@ router.get('/users', (req, res) => {
 // route for  registration//
 
 router.post('/register', (req,res)=>{
-    var hashpw = bcrypt.hashSync(req.body.password,8);
+    var hashpw = bcrypt.hashSync(req.body.password,8); // to encrypt the password //
     var email=req.body.email
     Users.find({email:email},(err,data)=>{
         if(data.length>0){
@@ -41,8 +41,8 @@ router.post('/register', (req,res)=>{
                 role:req.body.role?req.bodyrole:'User'
         
             },(err,data)=>{
-                if(err) return res.status(500).send("Error while Registration"); // if connection related error//
-                res.status(200).send("Successful Registration");
+                if(err) return res.status(500).send({auth:false ,token:"Error while Registration"}); // if connection related error//
+                res.status(200).send({auth:true,token:"Registration Successful"});
             })
 
         }
